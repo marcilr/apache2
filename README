@@ -10,3 +10,9 @@ apache2.txt
 
 links.txt
   apache2 related links
+
+manifest
+  Manifest for resync application
+
+python/
+  Python
