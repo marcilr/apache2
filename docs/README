@@ -1,0 +1,11 @@
+README
+Created Tue Jun 25 15:24:45 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+layout.txt
+  Layout for apache2 web server installation
+  on debian system.  From default web page 
+  of apache2 packahe installation.
