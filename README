@@ -23,5 +23,8 @@ manifest
 packages.txt
   Debian stretch 9.9 apache2 packages
 
+pdf/
+  Portable Document Format files
+
 python/
   Python
