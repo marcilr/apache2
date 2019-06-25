@@ -1,0 +1,21 @@
+layout.txt
+Created Tue Jun 25 15:26:43 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Layout for apache2 web server installation
+on debian system.  From default web page  
+of apache2 package installation.
+
+/etc/apache2/
+|-- apache2.conf
+|       `--  ports.conf
+|-- mods-enabled
+|       |-- *.load
+|       `-- *.conf
+|-- conf-enabled
+|       `-- *.conf
+|-- sites-enabled
+|       `-- *.conf
+
+
