@@ -8,3 +8,6 @@ apache2 related links
 
 Links
 =====
+Configuring Apache2 to run Python Scripts
+The Cyclops, January 14, 2014
+https://www.linux.com/blog/configuring-apache2-run-python-scripts
