@@ -1,0 +1,8 @@
+#.gitignore
+# Created Tue Jun 25 08:36:04 AKDT 2019
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+# Files for git to ignore.
+#
+.gitignore
+python/
