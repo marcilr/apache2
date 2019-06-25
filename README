@@ -17,5 +17,8 @@ links.txt
 manifest
   Manifest for resync application
 
+packages.txt
+  Debian stretch 9.9 apache2 packages
+
 python/
   Python
