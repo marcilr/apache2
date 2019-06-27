@@ -1,0 +1,46 @@
+Apache2-Debian-Default-Page.txt
+Created Thu Jun 27 11:33:57 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Apache2 Debian Default Page
+
+
+It works!
+=========
+This is the default welcome page used to test the correct operation
+of the Apache2 server after installation on Debian systems.  If you
+can read this page, it means that the Apache HTTP server installed
+at this site is working properly.  You should replace this file
+(located at /var/www/html/index.html) before continuing to operate
+your HTTP server.
+
+If you are a normal user of this web site and don't know what this
+page is about, this probably means that the site is currently
+unavailable due to maintenance.  If the problem persists, please
+contact the site's administrator.
+
+
+Configuration Overview
+======================
+Debian's Apache2 default configuration is different from the
+upstream default configuration, and split into several files
+optimized for interaction with Debian tools.  The configuration
+system is fully documented in /usr/share/doc/apache2/README.Debian.gz.
+Refer to this for the full documentation.  Documentation for
+the web server itself can be found by accessing the manual if
+the apache2-doc package was installed on this server.
+
+The configuration layout for an Apache2 web server installation on
+Debian systems is as follows:
+
+/etc/apache2/
+|-- apache2.conf
+|       `--  ports.conf
+|-- mods-enabled
+|       |-- *.load
+|       `-- *.conf
+|-- conf-enabled
+|       `-- *.conf
+|-- sites-enabled
+|       `-- *.conf
