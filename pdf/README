@@ -10,4 +10,30 @@ Apache2-Debian-Default-Page.pdf
   apache2 package on rockhounding site at:
     http://173.255.210.242/
 
+  Contains:
+    located at:      /var/www/html/index.html
+    documented at:   /usr/share/doc/apache2/README.Debian.gz
+    manual:          apache2-doc package
+
+    Configuration layout for Debian:
+      /etc/apache2/
+      |-- apache2.conf
+      |       `--  ports.conf
+      |-- mods-enabled
+      |       |-- *.load
+      |       `-- *.conf
+      |-- conf-enabled
+      |       `-- *.conf
+      |-- sites-enabled
+      |       `-- *.conf
+
   Snapshot taken June 27, 2019
+
+Apache2-Debian-Default-Page.txt
+  Apache2 default page of initial installation of
+  apache2 package on rockhounding site at:
+    http://173.255.210.242/
+
+  Saved and converted to text.  Has many 
+  configuration details.
+
