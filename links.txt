@@ -11,3 +11,17 @@ Links
 Configuring Apache2 to run Python Scripts
 The Cyclops, January 14, 2014
 https://www.linux.com/blog/configuring-apache2-run-python-scripts
+
+Glossary
+Apache > HTTP Server > Documentation > Version 2.4
+Very nice gloassay of apache related terms
+https://httpd.apache.org/docs/2.4/glossary.html
+
+ScriptAliasMatch
+Apache > HTTP Server > Documentation > Version 2.4 > Modules
+Apache HTTP Server Version 2.4
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html
+
+Mapping URLS to Filesystem Locations
+Apache HTTP Server Version 2.4
+https://httpd.apache.org/docs/2.4/urlmapping.html
