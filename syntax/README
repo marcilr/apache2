@@ -34,3 +34,17 @@ scriptaliasmatch.txt
   resulting file as a CGI script.
   --httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
 
+
+test-config-file.txt
+  Test apache configuration file use:
+
+  # apachectl -t
+  Syntax OK
+  #
+
+    or
+
+  # httpd -t
+  Syntax OK
+  #
+  --httpd.apache.org/docs/2.4/programs/apachectl.html
