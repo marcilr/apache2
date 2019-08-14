@@ -5,6 +5,9 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+links.txt
+  Apache syntax related links
+
 mapping-urls-to-filesystem.txt
   Mapping URLS to Filesystem Locations
   Apache HTTP Server Version 2.4
