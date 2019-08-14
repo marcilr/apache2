@@ -6,11 +6,150 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 Mapping URLS to Filesystem Locations
 
 
+DocumentRoot
+============
+In deciding what file to serve for a given request, httpd's
+default behavior is to take the URL-Path for the request (the
+part of the URL following the hostname and port) and add it
+to the end of the DocumentRoot[1] specified in your configuration
+files. Therefore, the files and directories underneath the
+DocumentRoot make up the basic document tree which will be
+visible from the web.
+
+For example, if DocumentRoot were set to /var/www/html then a
+request for http://www.example.com/fish/guppies.html would result
+in the file /var/www/html/fish/guppies.html being served to the
+requesting client.
+
+If a directory is requested (i.e. a path ending with /), the file
+served from that directory is defined by the DirectoryIndex[2]
+directive. For example, if DocumentRoot were set as above, and
+you were to set:
+
+    DirectoryIndex index.html index.php
+
+Then a request for http://www.example.com/fish/ will cause httpd
+to attempt to serve the file /var/www/html/fish/index.html.  In
+the event that that file does not exist, it will next attempt to
+serve the file /var/www/html/fish/index.php.
+
+If neither of these files existed, the next step is to attempt
+to provide a directory index, if mod_autoindex[3] is loaded and
+configured to permit that.
+
+httpd is also capable of Virtual Hosting, where the server
+receives requests for more than one host. In this case, a
+different DocumentRoot can be specified for each virtual host,
+or alternatively, the directives provided by the module
+mod_vhost_alias[3] can be used to dynamically determine the
+appropriate place from which to serve content based on the
+requested IP address or hostname.
+
+The DocumentRoot directive is set in your main server
+configuration file (httpd.conf) and, possibly, once per
+additional Virtual Host[5] you create.
+
+
+Files Outside the DocumentRoot
+==============================
+There are frequently circumstances where it is necessary to
+allow web access to parts of the filesystem that are not
+strictly underneath the DocumentRoot.  httpd offers several
+different ways to accomplish this.  On Unix systems, symbolic
+links can bring other parts of the filesystem under the
+DocumentRoot. For security reasons, httpd will follow
+symbolic links only if the Options[6] setting for the
+relevant directory includes FollowSymLinks or
+SymLinksIfOwnerMatch.
+
+Alternatively, the Alias[7] directive will map any part of
+the filesystem into the web space. For example, with
+
+  Alias "/docs" "/var/web"
+
+the URL http://www.example.com/docs/dir/file.html will be
+served from /var/web/dir/file.html.  The ScriptAlias[8]     <===
+directive works the same way, with the additional effect
+that all content located at the target path is treated as
+CGI scripts.
+
+For situations where you require additional flexibility,
+you can use the AliasMatch and ScriptAliasMatch directives
+to do powerful regular expression based matching and
+substitution.  For example,
+
+  ScriptAliasMatch "^/~([a-zA-Z0-9]+)/cgi-bin/(.+)"   "/home/$1/cgi-bin/$2"
+
+NOTE: Meaning of $2 above ???
+
+will map a request to http://example.com/~user/cgi-bin/script.cgi
+to the path /home/user/cgi-bin/script.cgi and will treat the
+resulting file as a CGI script.
+
+--httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
 
 
 Links
 =====
+[1] DocumentRoot
+https://httpd.apache.org/docs/2.4/mod/core.html#documentroot
+
+[2] DirectoryIndex
+https://httpd.apache.org/docs/2.4/mod/mod_dir.html#directoryindex
+
+[3] mod_autoindex
+https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html
+
+[4] mod_vhost_alias
+https://httpd.apache.org/docs/2.4/mod/mod_vhost_alias.html
+
+[5] Vitual Host
+https://httpd.apache.org/docs/2.4/vhosts/
+
+[6] Options
+https://httpd.apache.org/docs/2.4/mod/core.html#options
+
+[7] Alias
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html#alias
+
+[8] ScriptAlias
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
+
+[9] Wikipedia
+http://en.wikipedia.org/wiki/PCRE
+
+Glossary
+Apache > HTTP Server > Documentation > Version 2.4
+Very nice gloassay of apache related terms
+https://httpd.apache.org/docs/2.4/glossary.html
+
+ScriptAliasMatch
+Apache > HTTP Server > Documentation > Version 2.4 > Modules
+Apache HTTP Server Version 2.4
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html
+
 Mapping URLS to Filesystem Locations
 Apache HTTP Server Version 2.4
 https://httpd.apache.org/docs/2.4/urlmapping.html
 
+Regular Expression (Regex)
+A way of describing a pattern in text - for example, "all the
+words that begin with the letter A" or "every 10-digit phone
+number" or even "Every sentence with two commas in it, and no
+capital letter Q".  Regular expressions are useful in Apache
+because they let you apply certain attributes against
+collections of files or resources in very flexible ways - for
+example, all .gif and .jpg files under any "images" directory
+could be written as "/images/.*(jpg|gif)$". In places where
+regular expressions are used to replace strings, the special
+variables $1 ... $9 contain backreferences to the grouped
+parts (in parentheses) of the matched expression.  The
+special variable $0 contains a backreference to the whole
+matched expression.  To write a literal dollar sign in a
+replacement string, it can be escaped with a backslash.
+Historically, the variable & could be used as alias for $0
+in some places.  This is no longer possible since version
+2.3.6.  Apache uses Perl Compatible Regular Expressions
+provided by the PCRE library.  You can find more
+documentation about PCRE's regular expression syntax at that
+site, or at Wikipedia.[9]
