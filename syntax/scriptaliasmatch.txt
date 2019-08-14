@@ -1,0 +1,43 @@
+scriptaliasmatch.txt
+Created Wed Aug 14 14:47:19 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+ScriptAliasMatch
+
+
+Alternatively, the Alias[7] directive will map any part of
+the filesystem into the web space. For example, with
+
+  Alias "/docs" "/var/web"
+
+the URL http://www.example.com/docs/dir/file.html will be
+served from /var/web/dir/file.html.  The ScriptAlias[8]     <===
+directive works the same way, with the additional effect
+that all content located at the target path is treated as
+CGI scripts.
+
+For situations where you require additional flexibility,
+you can use the AliasMatch and ScriptAliasMatch directives
+to do powerful regular expression based matching and
+substitution.  For example,
+
+  ScriptAliasMatch "^/~([a-zA-Z0-9]+)/cgi-bin/(.+)"   "/home/$1/cgi-bin/$2"
+
+NOTE: Meaning of $2 above ???
+
+will map a request to http://example.com/~user/cgi-bin/script.cgi
+to the path /home/user/cgi-bin/script.cgi and will treat the
+resulting file as a CGI script.
+
+--httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
+
+
+
+Links
+=====
+ScriptAliasMatch
+Apache > HTTP Server > Documentation > Version 2.4 > Modules
+Apache HTTP Server Version 2.4
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html
+
