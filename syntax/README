@@ -14,3 +14,18 @@ redirects.txt
   Redirects
   Temporary and Permanent
 
+scriptaliasmatch.txt
+  ScriptAliasMatch
+
+  For situations where you require additional flexibility,
+  you can use the AliasMatch and ScriptAliasMatch directives
+  to do powerful regular expression based matching and
+  substitution.  For example,
+
+    ScriptAliasMatch "^/~([a-zA-Z0-9]+)/cgi-bin/(.+)"   "/home/$1/cgi-bin/$2"
+
+  will map a request to http://example.com/~user/cgi-bin/script.cgi
+  to the path /home/user/cgi-bin/script.cgi and will treat the
+  resulting file as a CGI script.
+  --httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
+
