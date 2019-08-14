@@ -9,19 +9,122 @@ ScriptAlias
 At SOA OIT DNR mapping selenium/test directory using:
   ScriptAlias "/selenium/" "/var/www/html/intdev/projects/selenium/tests/"
 
+Inspect webdriver unittests:
+  $ ls /var/www/html/intdev/projects/selenium/tests
+  HTMLTestRunner.py     unittestTest01.py  unittestTest07.py
+  Makefile              unittestTest02.py  unittestTest08.py
+  README                unittestTest03.py  unittestTest09.py
+  testSuite.py          unittestTest04.py  unittestTest10.py
+  TODO                  unittestTest05.py  unittestTest11.py
+  unittestResults.html  unittestTest06.py
+  $  
+
+Test webdriver unittests on intdev:
+  $ cd /var/www/html/intdev/projects/selenium/tests
+  $  make
+  rm -f *.html *.pyc
+  /usr/bin/python testSuite.py
+  Traceback (most recent call last):
+    File "testSuite.py", line 23, in <module>
+      from unittestTest01 import intDnrAlaskaGovTestCase
+    File "/net/dnr-atwfs1/vol/vol1/webdocs/intdev/projects/\
+  selenium/tests/unittestTest01.py", line 7, in <module>
+      from selenium import webdriver
+  ImportError: No module named selenium
+  make: *** [unittestResults.html] Error 1
+  $ 
+
+  Missing python selenium install.
+
+Install selenium using pip[4]:
+  pip install -U selenium
+  ...
+  You are using pip version 7.1.0, however version 19.2.2 is available.
+  You should consider upgrading via the 'pip install --upgrade pip' command.
+  ...
+  
+  Updated pip with:
+  # pip install --upgrade pip
+  You are using pip version 7.1.0, however version 19.2.2 is available.
+  You should consider upgrading via the 'pip install --upgrade pip' command.
+  /usr/lib/python2.6/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+    InsecurePlatformWarning
+  /usr/lib/python2.6/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+    InsecurePlatformWarning
+  Collecting pip
+  /usr/lib/python2.6/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+    InsecurePlatformWarning
+    Downloading https://files.pythonhosted.org/packages/8d/07/f7d7ced2f97ca3098c16565efbe6b15fafcba53e8d9bdb431e09140514b0/pip-19.2.2-py2.py3-none-any.whl (1.4MB)
+      100% |████████████████████████████████| 1.4MB 338kB/s 
+  Installing collected packages: pip
+    Found existing installation: pip 7.1.0
+      Uninstalling pip-7.1.0:
+        Successfully uninstalled pip-7.1.0
+  Successfully installed pip-19.2.2
+  # 
+
+Ran selenium install again for completeness:
+
+# pip install -U selenium
+  Traceback (most recent call last):
+    File "/usr/bin/pip", line 7, in <module>
+      from pip._internal import main
+    File "/usr/lib/python2.6/site-packages/pip/_internal/__init__.py", line 19, in <module>
+      from pip._vendor.urllib3.exceptions import DependencyWarning
+    File "/usr/lib/python2.6/site-packages/pip/_vendor/urllib3/__init__.py", line 7, in <module>
+      from .connectionpool import (
+    File "/usr/lib/python2.6/site-packages/pip/_vendor/urllib3/connectionpool.py", line 93
+      _blocking_errnos = {errno.EAGAIN, errno.EWOULDBLOCK}
+                                    ^
+  SyntaxError: invalid syntax
+# 
+
+  Ouch looks like python 2.6 is not supported by latest pip:
+    Python 2.6 isn't supported by newer versions of pip.
+    See https://pip.pypa.io/en/latest/installing/.
+    --Pip stop working after upgraded #6819
+      https://github.com/pypa/pip/issues/6819
+
+  Google:
+    "revert to last verison of pip that works with python 2.6"
+
+  Yields:
+    Just follow the instructions here:
+      https://pip.pypa.io/en/latest/installing.html#install-pip
+
+    1. Securely download get-pip.py.
+      https://bootstrap.pypa.io/get-pip.py
+
+    2. In the directory you saved get-pip.py, run
+
+      sudo python2.6 get-pip.py
+
+    and you'll be all set.
+
+    This will install pip for Python 2.6, and won't
+    touch your version 2.7 installation.
+    --answered Jun 18 '14 at 20:36, MattDMo
+      How to install pip for python 2.6?
+      https://stackoverflow.com/questions/24294467/how-to-install-pip-for-python-2-6
+
+  pip install --upgrade pip
+
+  NOTE: Requires pip being installed
+
+
 Checking intdev:/etc/httpd/conf/httpd.conf
   Looks like ScriptAlias' definitions start at line 776
 
 Updated with:
   # cp httpd.conf httpd.conf-PRIOR-20190814
 
-# grep -ni cgi-bin httpd.conf
-776:ScriptAlias /awstats/ "/usr/local/awstats/wwwroot/cgi-bin/"
-859:ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-862:# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
-865:<Directory "/var/www/cgi-bin">
-1127:#ErrorDocument 404 "/cgi-bin/missing_handler.pl"
-# 
+  # grep -ni cgi-bin httpd.conf
+  776:ScriptAlias /awstats/ "/usr/local/awstats/wwwroot/cgi-bin/"
+  859:ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+  862:# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
+  865:<Directory "/var/www/cgi-bin">
+  1127:#ErrorDocument 404 "/cgi-bin/missing_handler.pl"
+  # 
 
 Original cgi-bin definition from
 intdev:/etc/httpd/conf/httpd.conf:851
@@ -90,6 +193,9 @@ https://httpd.apache.org/docs/2.4/mod/mod_alias.html#alias
 
 [3] DocumentRoot
 https://httpd.apache.org/docs/2.4/mod/core.html#documentroot
+
+[4] Install selenium using pip
+https://pypi.org/project/selenium/
 
 
 Links
