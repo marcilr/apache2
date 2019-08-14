@@ -5,6 +5,11 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+mapping-urls-to-filesystem.txt
+  Mapping URLS to Filesystem Locations
+  Apache HTTP Server Version 2.4
+  https://httpd.apache.org/docs/2.4/urlmapping.html
+
 redirects.txt
   Redirects
   Temporary and Permanent
