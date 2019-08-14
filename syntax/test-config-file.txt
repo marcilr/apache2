@@ -1,0 +1,25 @@
+test-config-file.txt
+Created Wed Aug 14 15:09:36 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Test apache configuration file use:
+
+# apachectl -t
+Syntax OK
+# 
+
+  or
+
+# httpd -t
+Syntax OK
+# 
+
+--httpd.apache.org/docs/2.4/programs/apachectl.html
+
+
+Links
+=====
+apachectl - Apache HTTP Server Control Interface
+Apache > HTTP Server > Documentation > Version 2.4 > Programs
+https://httpd.apache.org/docs/2.4/programs/apachectl.html
