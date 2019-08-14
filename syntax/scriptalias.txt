@@ -6,6 +6,48 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 ScriptAlias
 
 
+At SOA OIT DNR mapping selenium/test directory using:
+  ScriptAlias "/selenium/" "/var/www/html/intdev/projects/selenium/tests/"
+
+Checking intdev:/etc/httpd/conf/httpd.conf
+  Looks like ScriptAlias' definitions start at line 776
+
+Updated with:
+  # cp httpd.conf httpd.conf-PRIOR-20190814
+
+# grep -ni cgi-bin httpd.conf
+776:ScriptAlias /awstats/ "/usr/local/awstats/wwwroot/cgi-bin/"
+859:ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+862:# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
+865:<Directory "/var/www/cgi-bin">
+1127:#ErrorDocument 404 "/cgi-bin/missing_handler.pl"
+# 
+
+Original cgi-bin definition from
+intdev:/etc/httpd/conf/httpd.conf:851
+#
+# ScriptAlias: This controls which directories contain server scripts.
+# ScriptAliases are essentially the same as Aliases, except that
+# documents in the realname directory are treated as applications and
+# run by the server when requested rather than as documents sent to the client.
+# The same rules about trailing "/" apply to ScriptAlias directives as to
+# Alias.
+#
+ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+
+#
+# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
+# CGI directory exists, if you have that configured.
+#
+<Directory "/var/www/cgi-bin">
+    AllowOverride None
+    Options None
+    Order allow,deny
+    Allow from all
+</Directory>
+
+
+
 The ScriptAlias directive tells Apache that a particular directory
 is set aside for CGI programs. Apache will assume that every file
 in this directory is a CGI program, and will attempt to execute it,
