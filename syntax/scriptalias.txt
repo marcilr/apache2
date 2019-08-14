@@ -1,0 +1,57 @@
+scriptalias.txt
+Created Wed Aug 14 14:51:49 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+ScriptAlias
+
+
+The ScriptAlias directive tells Apache that a particular directory
+is set aside for CGI programs. Apache will assume that every file
+in this directory is a CGI program, and will attempt to execute it,
+when that particular resource is requested by a client.
+
+The ScriptAlias directive looks like:
+
+  ScriptAlias "/cgi-bin/" "/usr/local/apache2/cgi-bin/"
+
+The example shown is from your default httpd.conf configuration
+file, if you installed Apache in the default location.  The
+ScriptAlias directive is much like the Alias[2] directive, which
+defines a URL prefix that is to mapped to a particular directory.
+Alias and ScriptAlias are usually used for directories that are
+outside of the DocumentRoot[3] directory.  The difference between
+Alias and ScriptAlias is that ScriptAlias has the added meaning
+that everything under that URL prefix will be considered a CGI
+program.  So, the example above tells Apache that any request for
+a resource beginning with /cgi-bin/ should be served from the
+directory /usr/local/apache2/cgi-bin/, and should be treated as
+a CGI program.
+
+For example, if the URL http://www.example.com/cgi-bin/test.pl
+is requested, Apache will attempt to execute the file
+/usr/local/apache2/cgi-bin/test.pl and return the output.  Of
+course, the file will have to exist, and be executable, and
+return output in a particular way, or Apache will return an
+error message.
+
+--httpd.apache.org/docs/2.4/howto/cgi.html
+
+
+Links
+=====
+[1] ScriptAlias
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
+
+[2] Alias
+https://httpd.apache.org/docs/2.4/mod/mod_alias.html#alias
+
+[3] DocumentRoot
+https://httpd.apache.org/docs/2.4/mod/core.html#documentroot
+
+
+Links
+=====
+Apache Tutorial: Dynamic Content with CGI
+Apache > HTTP Server > Documentation > Version 2.4 > How-To / Tutorials
+https://httpd.apache.org/docs/2.4/howto/cgi.html
