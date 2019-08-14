@@ -1,0 +1,16 @@
+mapping-urls-to-filesystem.txt
+Created Wed Aug 14 13:18:01 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Mapping URLS to Filesystem Locations
+
+
+
+
+Links
+=====
+Mapping URLS to Filesystem Locations
+Apache HTTP Server Version 2.4
+https://httpd.apache.org/docs/2.4/urlmapping.html
+
