@@ -17,6 +17,10 @@ redirects.txt
   Redirects
   Temporary and Permanent
 
+reload.txt
+  Reload httpd configuration
+  without restarting apache
+
 scriptalias.txt
   Apache Tutorial: Dynamic Content with CGI
   Apache > HTTP Server > Documentation > Version 2.4 > How-To / Tutorials
