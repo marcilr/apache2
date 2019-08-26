@@ -1,0 +1,59 @@
+reload.txt
+Created Mon Aug 26 11:32:54 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+
+Reload httpd configuration 
+without restarting apache
+
+
+Command syntax to gracefully restart the Apache 1.x/2.x
+after changing config file
+
+Type the following command as a root user:
+
+apachectl -k graceful
+  OR
+apache2ctl -k graceful
+
+
+You can also use Linux distro specific Sys V init
+script as follows to gracefully reload the server.
+The following example works on RHEL/CentOS Linux
+and friends only:
+
+/etc/init.d/httpd graceful
+   OR
+/sbin/service httpd graceful
+
+
+Debian / Ubuntu Linux and friends use the following syntax:
+  /etc/init.d/apache2 reload
+
+
+Monitoring apache progress
+==========================
+After you have signaled Apache 2, you can read apache
+error_log file about its progress by issuing the following
+tail command:
+
+## For RHEL / CentOS and friends ##
+tail -f /var/log/httpd/error_log
+ 
+## For  Debian / Ubuntu and friends ##
+tail -f /var/log/apache2/error.log
+ 
+## FreeBSD Unix ##
+tail -f /var/log/httpd-error.log
+
+
+--www.cyberciti.biz/faq/apache-2-reload-httpd-config-file-unix-linux-command/
+
+
+Links
+=====
+Apache 2: Reload HTTPD Configuration File
+Without Restarting Apache Config Changes
+last updated April 28, 2013
+in Categories Apache, Linux, UNIX
