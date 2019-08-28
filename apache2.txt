@@ -4,3 +4,24 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 apache2 - Apache HTTP Server
+
+
+The default document root is:
+   /var/www/html
+
+To change the document root:
+  You need to edit the site specific config file at this path
+  /etc/apache2/sites-enabled
+
+  the file you probably need to edit is 000-default.conf
+
+  just change the DocumentRoot from /var/www/html to /var/www/YOUR_DIRECTORY
+  --digitalocean.com/
+
+
+Links
+=====
+How to change the document root directory in debian8.1?
+July 12, 2015 3.4k views  APACHE
+vaun September 1, 2015
+https://www.digitalocean.com/community/questions/how-to-change-the-document-root-directory-in-debian8-1
