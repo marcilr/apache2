@@ -1,5 +1,5 @@
 links.txt
-Created Wed Aug 14 15:15:53 AKDT 2019
+Created Mon May 20 10:21:12 AKDT 2019
 Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
@@ -12,3 +12,10 @@ apachectl - Apache HTTP Server Control Interface
 Apache HTTP Server Version 2.4
 Apache > HTTP Server > Documentation > Version 2.4 > Programs
 https://httpd.apache.org/docs/2.4/programs/apachectl.html
+
+Apache Module mod_authz_host
+https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html
+
+The Require Directives
+Apache Module mod_authz_host
+https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html
