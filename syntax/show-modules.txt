@@ -1,0 +1,62 @@
+show-modules.txt
+Created Fri May 17 07:48:59 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+
+For apachectl use:
+  $ apachectl -t -D DUMP_MODULES
+
+
+Example
+=======
+From Apache 2.4.6, httpd.x86_64 2.4.6-89.el7_6 package,
+running on SOA DNR dnratwwebdev system with:
+  Red Hat Enterprise Linux Server release 7.6 (Maipo)
+
+$  apachectl -v
+Server version: Apache/2.4.6 (Red Hat Enterprise Linux)
+Server built:   Mar 15 2019 07:18:12
+$  
+
+$  apachectl -t -D DUMP_MODULES
+Passing arguments to httpd using apachectl is no longer supported.
+You can only start/stop/restart httpd using this script.
+If you want to pass extra arguments to httpd, edit the
+/etc/sysconfig/httpd config file.
+Loaded Modules:
+ core_module (static)
+ so_module (static)
+ http_module (static)
+...
+ security2_module (shared)
+$
+
+
+$  apachectl help
+Usage: /usr/sbin/httpd [-D name] [-d directory] [-f file]
+                       [-C "directive"] [-c "directive"]
+                       [-k start|restart|graceful|graceful-stop|stop]
+                       [-v] [-V] [-h] [-l] [-L] [-t] [-T] [-S] [-X]
+Options:
+  -D name            : define a name for use in <IfDefine name> directives
+  -d directory       : specify an alternate initial ServerRoot
+  -f file            : specify an alternate ServerConfigFile
+  -C "directive"     : process directive before reading config files
+  -c "directive"     : process directive after reading config files
+  -e level           : show startup errors of level (see LogLevel)
+  -E file            : log startup errors to file
+  -v                 : show version number
+  -V                 : show compile settings
+  -h                 : list available command line options (this page)
+  -l                 : list compiled in modules
+  -L                 : list available configuration directives
+  -t -D DUMP_VHOSTS  : show parsed vhost settings
+  -t -D DUMP_RUN_CFG : show parsed run settings
+  -S                 : a synonym for -t -D DUMP_VHOSTS -D DUMP_RUN_CFG
+  -t -D DUMP_MODULES : show all loaded modules 
+  -M                 : a synonym for -t -D DUMP_MODULES
+  -t                 : run syntax check for config files
+  -T                 : start without DocumentRoot(s) check
+  -X                 : debug mode (only one worker, do not detach)
+$
