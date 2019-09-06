@@ -1,0 +1,123 @@
+FollowSymlinks.txt
+Created Tue Apr 25 09:46:21 AKDT 2017
+Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+How do I get Apache to follow symlinks?
+  edited Oct 5 '13 at 19:17 Hennes
+  asked Feb 10 '11 at 21:52 luca
+
+
+
+There are two things here:
+=========================
+1. symlinks
+2. directory listing
+
+
+symlinks
+--------
+Assuming /var/www is your DocumentRoot for your default virtual host,
+you should find your default virtual host configuration file (probably
+/etc/apache2/sites-enabled/000-default) and put it inside that virtual
+host block, e.g.
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+
+    DocumentRoot /var/www
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+
+If you haven't changed anything, that option should already be there.
+
+
+directory listing
+-----------------
+To make Apache list the files in a directory, you need to enable the
+Indexes option too, e.g. change
+
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+
+in /etc/apache2/sites-enabled/000-default to:
+
+    <Directory />
+        Options FollowSymLinks Indexes
+        AllowOverride None
+    </Directory>
+
+Or, perhaps a more secure way is to change it to:
+
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride Indexes
+    </Directory>
+
+and put this in /home/user/mydir/.htaccess.
+
+    Option Indexes
+
+why .htaccess doesn't work
+
+By default, putting Options <something> in an .htaccess file won't work
+because of the other entry in your config file: AllowOverride None.
+
+That's why we have to put AllowOverride Indexes there.
+
+(AllowOverride documentation)
+
+--superuser.com/
+
+
+Example
+=======
+For the GCI covellite Debian jessie 8.7 amd64 workstation I wanted a
+symlink from /usr/local/htdocs to git/htdocs/gci/htdocs/ checked out
+on my usb key at:
+  /media/marcilr/ext4/htdocs
+
+1. Move /usr/local/htdocs to usb key:
+$ cd /usr/local
+$ cp -Rv htdocs/ /media/marcilr/ext4/
+$ rm -rf htdocs
+
+2. Create /usr/local/htdocs symlink:
+$ cd /usr/local
+$ ln -s /media/marcilr/ext4/htdocs/ .
+
+3. Update httpd.conf configuration file:
+$ cd /usr/local/httpd/conf/
+
+httpd.conf:197
+<Directory />
+    AllowOverride none
+    Require all denied
+</Directory>
+
+  to
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride none
+    Require all denied
+</Directory>
+
+4. Restart apache:
+# /etc/init.d/apache2 stop
+# /etc/init.d/apache2 start
+
+
+NOTE: Had to make sure the /media/marcilr/ext4/htdocs path had 755 privs
+      such that that apache running as daemon:daemon could access it.
+
+
+
+Links
+=====
+How do I get Apache to follow symlinks?
+https://superuser.com/questions/244245/how-do-i-get-apache-to-follow-symlinks
