@@ -1,0 +1,73 @@
+INSTALL
+Created Sat Jul 21 21:31:21 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installation of apache for rockhounding.net
+
+
+Sun Jul 22 20:06:29 AKDT 2012
+=============================
+Installed 00DEBIAN/00ETC/bornite/etc/init.d/httpd apache
+start/stop script on bornite. 
+
+Created /etc/rcN.d run levels:
+
+Run level      Description                          Symlink
+-----------------------------------------------------------------------------------------
+0             system halt condition                /etc/rc0.d/K01httpd -> ../init.d/httpd
+1             'single user' - no daemons started   /etc/rc1.d/K01httpd -> ../init.d/httpd
+2 through 5   multi-user mode                      /etc/rc2.d/S02httpd -> ../init.d/httpd
+                                                   /etc/rc3.d/S02httpd -> ../init.d/httpd
+                                                   /etc/rc4.d/S02httpd -> ../init.d/httpd
+                                                   /etc/rc5.d/S02httpd -> ../init.d/httpd
+6             signal system reboot                 /etc/rc6.d/K01httpd -> ../init.d/httpd
+
+
+Sat Jul 21 21:31:21 AKDT 2012
+=============================
+Built and installed apache to /usr/local/httpd/
+
+$ tar jxvpf httpd-2.4.2.tar.gz
+$ cd httpd-2.4.2
+$ ./configure \
+--prefix=/usr/local/httpd \
+--enable-info \
+--enable-status \
+--enable-module=so \
+--enable-ext-filter \
+--enable-rewrite \
+--enable-ssl
+
+Options:
+  --prefix=PREFIX                install architecture-independent files in PREFIX
+  --enable-info                  server information
+  --enable-modules=MODULE-LIST
+  --enable-ext-filter            external filter module
+  --enable-rewrite               rule based URL manipulation
+  --enable-ssl                   SSL/TLS support (mod_ssl)
+  --with-ssl=DIR                 OpenSSL SSL/TLS toolkit
+
+NOTE: Debian squeeze has libssl and libssl-dev 0.9.8g packages which alleviates the need 
+      for '--with-ssl=/usr/local/ssl' option.
+
+$ make
+# make install
+
+
+
+Install gcc from debian package:
+
+$ aptitude install gcc
+...
+$ gcc --version
+gcc (Debian 4.4.5-8) 4.4.5
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$ dpkg -l | grep gcc
+...
+ii  gcc-4.4   4.4.5-8   The GNU C compiler
+...
+$
