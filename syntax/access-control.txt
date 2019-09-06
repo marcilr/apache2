@@ -1,0 +1,99 @@
+access-contol.txt
+Created Thu Sep  6 14:41:57 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Access control by host
+
+
+If you wish to restrict access to portions of your site based on the
+host address of your visitors, this is most easily done using
+mod_authz_host.[1]
+
+The Require provides a variety of different ways to allow or deny access to
+resources. In conjunction with the RequireAll[2], RequireAny[3], and
+RequireNone[4] directives, these requirements may be combined in arbitrarily
+complex ways, to enforce whatever your access policy happens to be.
+
+The Allow, Deny, and Order directives, provided by mod_access_compat, are
+deprecated and will go away in a future version.  You should avoid using
+them, and avoid outdated tutorials recommending their use.
+
+The usage of these directives is:
+
+  Require host address
+  Require ip ip.address
+
+In the first form, address is a fully qualified domain name (or a partial
+domain name); you may provide multiple addresses or domain names, if
+desired.
+
+In the second form, ip.address is an IP address, a partial IP address,
+a network/netmask pair, or a network/nnn CIDR specification.  Either
+IPv4 or IPv6 addresses may be used.
+
+See the mod_authz_host documentation[5] for further examples of this syntax.
+--httpd.apache.org/docs/2.4/howto/access.html
+
+
+Require ip
+==========
+The ip provider allows access to the server to be controlled
+based on the IP address of the remote client.  When Require ip
+ip-address is specified, then the request is allowed access if
+the IP address matches.
+
+A full IP address:
+
+  Require ip 10.1.2.3
+  Require ip 192.168.1.104 192.168.1.205
+  An IP address of a host allowed access
+
+
+A partial IP address:
+
+  Require ip 10.1
+  Require ip 10 172.20 192.168.2
+
+The first 1 to 3 bytes of an IP address, for subnet restriction.
+
+A network/netmask pair:
+
+  Require ip 10.1.0.0/255.255.0.0
+
+A network a.b.c.d, and a netmask w.x.y.z.  For more fine-grained
+ subnet restriction.
+
+A network/nnn CIDR specification:
+
+  Require ip 10.1.0.0/16
+
+--The Require Directives
+  Apache Module mod_authz_host
+  https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html
+
+
+Links
+=====
+[1] mod_authz_host
+https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html
+
+[2] RequireAll
+https://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireall
+
+[3] RequireAny
+https://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requireany
+
+[4] RequireNone
+https://httpd.apache.org/docs/2.4/mod/mod_authz_core.html#requirenone
+
+[5] the mod_authz_host documentation
+https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html#requiredirectives
+
+Access Control
+Apache HTTP Server Project
+https://httpd.apache.org/docs/2.4/howto/access.html
+
+The Require Directives
+Apache Module mod_authz_host
+https://httpd.apache.org/docs/2.4/mod/mod_authz_host.html
