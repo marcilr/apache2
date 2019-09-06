@@ -25,6 +25,18 @@ Pulling up http://173.255.210.242/ yields:
 
 Fri Sep  6 09:32:32 AKDT 2019
 =============================
+o Apache's default user for web access is:
+  www-data
+
+Hence set privs on ~/www to www-data:
+$ chmod -R g+wrxs /home/remarcil/www/
+
+Note the 's' in chmod command.  "This ensures that the
+group (www-data) takes over ownership over any file
+created inside the directory with the s parameter."
+--questions/1003282/
+
+
 o Create ~/www directory from github repo:
 
 Checkout www directory from github:
@@ -66,6 +78,9 @@ o On State of Alaska Debian 9.9.0 vm set document root
 
 Links
 =====
+Apache - Allow access to user home directories
+https://askubuntu.com/questions/1003282/apache-allow-access-to-user-home-directories
+
 Where is apache web root directory on Ubuntu? [duplicate]
 https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu
 
