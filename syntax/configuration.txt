@@ -1,0 +1,17 @@
+configuration.txt
+Created Fri Sep  6 09:27:01 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+The default apache2 - Apache HTTP Server (debian package)
+configuration is:
+
+  /etc/apache2/apache2.conf
+
+
+Fri Sep  6 09:27:01 AKDT 2019
+=============================
+Made backup of configuration:
+
+  $ cd /etc/apache2/
+  # cp apache2.conf apache2.conf-ORIG-20190905
