@@ -5,6 +5,12 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+access-contol.txt
+  Access control by host
+  If you wish to restrict access to portions of your site based on the
+  host address of your visitors, this is most easily done using mod_authz_host.
+  https://httpd.apache.org/docs/2.4/howto/access.html
+
 document-root.txt
   Document root
   The default document root for apache is:
