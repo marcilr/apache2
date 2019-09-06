@@ -19,6 +19,9 @@ document-root.txt
   --Where is apache web root directory on Ubuntu? [duplicate]
     https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu
 
+FollowSymlinks.txt
+  How do I get Apache to follow symlinks?
+
 links.txt
   Apache syntax related links
 
