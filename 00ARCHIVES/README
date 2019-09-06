@@ -8,6 +8,12 @@ Filelist
 INSTALL-20120731
   Installation of apache on prior bornite server
   dated Sat Jul 21 21:31:21 AKDT 2012
+  Copied from prior git/net/www/apache/ repo Fri Sep 6, 2019
+
+INSTALL-20180906
+  Install apache from source on rockhounding.net
+  linode system 
+  Copied from prior git/net/www/apache/ repo Fri Sep 6, 2019
 
 pdf/
   Copied from prior git/net/www/apache/pdf
