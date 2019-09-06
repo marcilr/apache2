@@ -1,0 +1,27 @@
+INSTALL
+Created Thu Sep  6 13:57:50 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Install apache from source on rockhounding.net linode system.
+
+
+1.  Build the apache portable runtime project (APR) 
+    Debian packages (*.deb).
+
+i. Get apr-util:
+$ wget http://ftp.wayne.edu/apache//apr/apr-1.6.3.tar.gz
+
+ii. Compile apache portable runtime:
+$ tar zxvpf apr-1.6.3.tar.gz
+$ cd apr-1.6.3/
+$ ./configure --prefix=/usr/local
+$ make
+
+
+
+Links
+=====
+Downloading the Apache Portable Runtime
+Apache Portable Runtime Library
+https://apr.apache.org/download.cgi
