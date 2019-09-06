@@ -3,11 +3,13 @@ Created Thu Sep  6 14:34:29 AKDT 2018
 Copyright (C) 2018-2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-Debian stretch 9.9 apache2 packages
+Packages for Apache2
 
 
 Packages
 ========
+Debian stretch 9.9 apache2 packages
+
 apache2 - Apache HTTP Server
 apache2-bin - Apache HTTP Server (modules and other binary files)
 apache2-data - Apache HTTP Server (common files)
@@ -15,6 +17,25 @@ apache2-dbg - Apache debugging symbols
 apache2-dev - Apache HTTP Server (development headers)
 apache2-doc - Apache HTTP Server (on-site documentation)
 apache2-ssl-dev - Apache HTTP Server (mod_ssl development headers)
+apache2-utils - Apache HTTP Server (utility programs for web servers)
+libapache-pom-java - Maven metadata for all Apache Software projects
+
+
+Fri Sep  6 07:38:28 AKDT 2019
+=============================
+Listing on Debian 9.9.0 virtualbox vm:
+
+$ dpkg -l | grep apache
+ii  apache2              2.4.25-3+deb9u8   amd64   Apache HTTP Server
+ii  apache2-bin          2.4.25-3+deb9u8   amd64   Apache HTTP Server (modules and other binary files)
+ii  apache2-data         2.4.25-3+deb9u8   all     Apache HTTP Server (common files)
+ii  apache2-dbg          2.4.25-3+deb9u8   amd64   Apache debugging symbols
+ii  apache2-dev          2.4.25-3+deb9u8   amd64   Apache HTTP Server (development headers)
+ii  apache2-doc          2.4.25-3+deb9u8   all     Apache HTTP Server (on-site documentation)
+ii  apache2-ssl-dev      2.4.25-3+deb9u8   amd64   Apache HTTP Server (mod_ssl development headers)
+ii  apache2-utils        2.4.25-3+deb9u8   amd64   Apache HTTP Server (utility programs for web servers)
+ii  libapache-pom-java   10-2              all     Maven metadata for all Apache Software projects
+$ 
 
 
 
