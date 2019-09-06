@@ -1,6 +1,6 @@
 README
-Created Wed Aug 14 13:07:57 AKDT 2019
-Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+Created Tue Apr 25 09:44:47 AKDT 2017
+Copyright (C) 2017-2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 Filelist
@@ -9,7 +9,9 @@ access-contol.txt
   Access control by host
   If you wish to restrict access to portions of your site based on the
   host address of your visitors, this is most easily done using mod_authz_host.
-  https://httpd.apache.org/docs/2.4/howto/access.html
+  Solid "The Require Directives" section.
+  --Apache Module mod_authz_host
+    https://httpd.apache.org/docs/2.4/howto/access.html
 
 document-root.txt
   Document root
@@ -63,6 +65,9 @@ show-modules.txt
 
   For apachectl use:
   $ apachectl -t -D DUMP_MODULES
+
+syntax.txt
+  Syntax
 
 test-config-file.txt
   Test apache configuration file use:
