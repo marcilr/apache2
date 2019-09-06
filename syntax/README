@@ -58,6 +58,11 @@ scriptaliasmatch.txt
   resulting file as a CGI script.
   --httpd.apache.org/docs/2.4/mod/mod_alias.html#scriptalias
 
+show-modules.txt
+  Show modules
+
+  For apachectl use:
+  $ apachectl -t -D DUMP_MODULES
 
 test-config-file.txt
   Test apache configuration file use:
