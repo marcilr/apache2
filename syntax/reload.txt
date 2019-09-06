@@ -47,9 +47,18 @@ tail -f /var/log/apache2/error.log
 ## FreeBSD Unix ##
 tail -f /var/log/httpd-error.log
 
-
 --www.cyberciti.biz/faq/apache-2-reload-httpd-config-file-unix-linux-command/
 
+
+Mon Aug 26 11:38:16 AKDT 2019
+=============================
+On Red Hat Enterprise Linux Server release 6.10 (Santiago)
+
+1. Tail log:
+# tail -f /var/log/httpd/error_log
+
+2. Reload apache configuration:
+/etc/init.d/httpd graceful
 
 Links
 =====
@@ -57,3 +66,4 @@ Apache 2: Reload HTTPD Configuration File
 Without Restarting Apache Config Changes
 last updated April 28, 2013
 in Categories Apache, Linux, UNIX
+https://www.cyberciti.biz/faq/apache-2-reload-httpd-config-file-unix-linux-command/
