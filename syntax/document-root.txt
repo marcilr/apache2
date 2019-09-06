@@ -23,6 +23,33 @@ Pulling up http://173.255.210.242/ yields:
   This was created by default and is certainly a good web server start.
 
 
+Fri Sep  6 09:32:32 AKDT 2019
+=============================
+o Created backup of /etc/apache2/sites-enabled/000-default.conf:
+
+  $ cd /etc/apache2/sites-enabled/
+  # cp 000-default.conf 000-default.conf-ORIG-20190906
+
+o On State of Alaska Debian 9.9.0 vm set document root
+  to /home/remarcil/git/
+
+  # nano +11 /etc/apache2/sites-enabled/000-default.conf:
+
+  Updated ServerAdmin and DocumentRoot:
+        ServerAdmin remarcil@alaska.gov
+        DocumentRoot /home/remarcil/git
+        
+        #ServerAdmin webmaster@localhost
+        #DocumentRoot /var/www/html
+
+  Reload configuration:
+  # /etc/init.d/apache2 reload
+  [ ok ] Reloading apache2 configuration (via systemctl): apache2.service.
+  # 
+   
+
+
+
 Links
 =====
 Where is apache web root directory on Ubuntu? [duplicate]
