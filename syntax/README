@@ -5,6 +5,14 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+document-root.txt
+  Document root
+  The default document root for apache is:
+    /var/www/ or /var/www/html/
+
+  --Where is apache web root directory on Ubuntu? [duplicate]
+    https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu
+
 links.txt
   Apache syntax related links
 
