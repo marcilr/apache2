@@ -1,6 +1,6 @@
 packages.txt
-Created Tue Jun 25 15:08:56 AKDT 2019
-Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+Created Thu Sep  6 14:34:29 AKDT 2018
+Copyright (C) 2018-2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 Debian stretch 9.9 apache2 packages
@@ -15,3 +15,37 @@ apache2-dbg - Apache debugging symbols
 apache2-dev - Apache HTTP Server (development headers)
 apache2-doc - Apache HTTP Server (on-site documentation)
 apache2-ssl-dev - Apache HTTP Server (mod_ssl development headers)
+
+
+
+Thu Sep  6 14:35:21 AKDT 2018
+=============================
+Debian 9.5 amd64 apache packages
+
+From inspection of rockhounding.net linode machine
+
+# dpkg -l | grep apache
+ii  apache2         2.4.25-3+deb9u5   amd64   Apache HTTP Server
+ii  apache2-bin     2.4.25-3+deb9u5   amd64   Apache HTTP Server (modules and other binary files)
+ii  apache2-data    2.4.25-3+deb9u5   all     Apache HTTP Server (common files)
+ii  apache2-utils   2.4.25-3+deb9u5   amd64   Apache HTTP Server (utility programs for web servers)
+#
+
+# dpkg -l | grep apr
+ii  libapr1:amd64                   1.5.2-5   amd64   Apache Portable Runtime Library
+ii  libaprutil1:amd64               1.5.4-3   amd64   Apache Portable Runtime Utility Library
+ii  libaprutil1-dbd-sqlite3:amd64   1.5.4-3   amd64   Apache Portable Runtime Utility Library - SQLite3 Driver
+ii  libaprutil1-ldap:amd64          1.5.4-3   amd64   Apache Portable Runtime Utility Library - LDAP Driver
+ii  libchromaprint1:amd64           1.4.2-1   amd64   audio fingerprint library
+#
+
+Whilst not installed there are APR packages for the mysql and postgresl 
+database drivers:
+
+# apt-cache search libapr | grep libaprutil1-dbd
+libaprutil1-dbd-mysql - Apache Portable Runtime Utility Library - MySQL Driver
+libaprutil1-dbd-odbc - Apache Portable Runtime Utility Library - ODBC Driver
+libaprutil1-dbd-pgsql - Apache Portable Runtime Utility Library - PostgreSQL Driver
+libaprutil1-dbd-sqlite3 - Apache Portable Runtime Utility Library - SQLite3 Driver
+#
+
