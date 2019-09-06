@@ -6,9 +6,13 @@ Copyright (C) 2017-2019 by Raymond E. Marcil <marcilr@gmail.com>
 Document root
 =============
 The default document root for apache is:
-  /var/www/ or /var/www/html/
+
+  /var/www/
+    or
+  /var/www/html/
 
 --askubuntu.com/questions/683953/
+
 
 The rockhounding.net machine has:
   /var/www/html/index.html
