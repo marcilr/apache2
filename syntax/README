@@ -13,6 +13,12 @@ access-contol.txt
   --Apache Module mod_authz_host
     https://httpd.apache.org/docs/2.4/howto/access.html
 
+configuration.txt
+  The default apache2 - Apache HTTP Server (debian package)
+  configuration is:
+
+  /etc/apache2/apache2.conf
+
 document-root.txt
   Document root
   The default document root for apache is:
