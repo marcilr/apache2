@@ -19,6 +19,13 @@ configuration.txt
 
   /etc/apache2/apache2.conf
 
+default-user.txt
+  Apache's default user for web access is:
+    www-data
+
+  --Apache - Allow access to user home directories
+    https://askubuntu.com/questions/1003282/apache-allow-access-to-user-home-directories
+
 document-root.txt
   Document root
   The default document root for apache is:
