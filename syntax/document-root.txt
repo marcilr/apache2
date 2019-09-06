@@ -25,6 +25,20 @@ Pulling up http://173.255.210.242/ yields:
 
 Fri Sep  6 09:32:32 AKDT 2019
 =============================
+o Create ~/www directory from github repo:
+
+Checkout www directory from github:
+$ git clone ssh://git@github.com/marcilr/www.git ~/www
+Cloning into '/home/remarcil/www'...
+remote: Enumerating objects: 23, done.
+remote: Counting objects: 100% (23/23), done.
+remote: Compressing objects: 100% (16/16), done.
+remote: Total 208 (delta 8), reused 19 (delta 6), pack-reused 185
+Receiving objects: 100% (208/208), 367.45 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (91/91), done.
+$ 
+
+
 o Created backup of /etc/apache2/sites-enabled/000-default.conf:
 
   $ cd /etc/apache2/sites-enabled/
