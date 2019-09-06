@@ -8,6 +8,10 @@ Apache syntax related links
 
 Links
 =====
+Apache - Allow access to user home directories
+Notes on www-data (Apache's default user for web access.)
+https://askubuntu.com/questions/1003282/apache-allow-access-to-user-home-directories
+
 apachectl - Apache HTTP Server Control Interface
 Apache HTTP Server Version 2.4
 Apache > HTTP Server > Documentation > Version 2.4 > Programs
