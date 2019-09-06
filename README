@@ -1,15 +1,18 @@
 README
-Created Tue Jun 25 08:30:21 AKDT 2019
-Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+Created Tue Apr 25 09:41:49 AKDT 2017
+Copyright (C) 2017-2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 Filelist
 ========
-00INSTALL/
-  Installation of apache2
-
 .gitignore
   Files for git to ignore
+
+00ARCHIVES/
+  Archives
+
+00INSTALL/
+  Installation of apache2
 
 apache2.txt
   apache2 - Apache HTTP Server
@@ -33,4 +36,4 @@ python/
   Python
 
 syntax/
-  Syntax
+  Syntax for Apache2
