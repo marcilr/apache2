@@ -8,6 +8,14 @@ Reload httpd configuration
 without restarting apache
 
 
+Verify configuration and reload:
+  # /usr/sbin/apachectl configtest
+  Syntax OK
+  # 
+  # /sbin/service httpd graceful
+  # 
+
+
 Command syntax to gracefully restart the Apache 1.x/2.x
 after changing config file
 
