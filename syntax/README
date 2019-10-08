@@ -40,6 +40,9 @@ FollowSymlinks.txt
 links.txt
   Apache syntax related links
 
+logging/
+  Logging
+
 mapping-urls-to-filesystem.txt
   Mapping URLS to Filesystem Locations
   Apache HTTP Server Version 2.4
