@@ -25,17 +25,30 @@ Pulling up http://173.255.210.242/ yields:
 
 Fri Sep  6 09:32:32 AKDT 2019
 =============================
-o Apache's default user for web access is:
-  www-data
 
-Hence set privs on ~/www to www-data:
-$ chmod -R g+wrxs /home/remarcil/www/
+o Create /var/www/html/ dir Apache use:
+$ mkdir -p /var/www/html
 
-Note the 's' in chmod command.  "This ensures that the
+o Create base /var/www/ directory: for Apache use:
+$ chmod -R g+wrxs ~/www/
+# chown remarcil:www-data /var/www
+# mkdir -p /var/www
+
+Note how the group is set to Apache's 
+default (www-data) for web access.
+
+The 's' in chmod command...  "This ensures that the
 group (www-data) takes over ownership over any file
 created inside the directory with the s parameter."
 --questions/1003282/
 
+
+o Add Apache's wwwdata group to remarcil user:
+
+  # nano +24 /etc/group
+  www-data:x:33:remarcil
+
+NOTE: Must logout and login to get new group.
 
 o Create ~/www directory from github repo:
 
@@ -50,29 +63,25 @@ Receiving objects: 100% (208/208), 367.45 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (91/91), done.
 $ 
 
-
-o Created backup of /etc/apache2/sites-enabled/000-default.conf:
-
-  $ cd /etc/apache2/sites-enabled/
-  # cp 000-default.conf 000-default.conf-ORIG-20190906
-
 o On State of Alaska Debian 9.9.0 vm set document root
   to /home/remarcil/git/
 
   # nano +11 /etc/apache2/sites-enabled/000-default.conf:
 
-  Updated ServerAdmin and DocumentRoot:
-        ServerAdmin remarcil@alaska.gov
-        DocumentRoot /home/remarcil/git
-        
+  Updated ServerAdmin:
         #ServerAdmin webmaster@localhost
-        #DocumentRoot /var/www/html
+        ServerAdmin remarcil@alaska.gov
+        DocumentRoot /var/www/html
 
   Reload configuration:
   # /etc/init.d/apache2 reload
   [ ok ] Reloading apache2 configuration (via systemctl): apache2.service.
-  # 
-   
+  #
+
+
+o Created backup of /etc/apache2/sites-enabled/000-default.conf:
+  $ cd /etc/apache2/sites-enabled/
+  # cp 000-default.conf 000-default.conf-ORIG-20190906
 
 
 
