@@ -4,3 +4,17 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 Logging
+
+
+The apache2 access log is under /var/log/apache2/:
+
+$ ls /var/log/apache2/
+access.log        access.log.3.gz  error.log.1      error.log.4.gz
+access.log.1      access.log.4.gz  error.log.10.gz  error.log.5.gz
+access.log.10.gz  access.log.5.gz  error.log.11.gz  error.log.6.gz
+access.log.11.gz  access.log.6.gz  error.log.12.gz  error.log.7.gz
+access.log.12.gz  access.log.7.gz  error.log.13.gz  error.log.8.gz
+access.log.13.gz  access.log.8.gz  error.log.14.gz  error.log.9.gz
+access.log.14.gz  access.log.9.gz  error.log.2.gz   other_vhosts_access.log
+access.log.2.gz   error.log        error.log.3.gz
+$ 
