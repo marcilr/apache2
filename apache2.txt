@@ -7,15 +7,19 @@ apache2 - Apache HTTP Server
 
 
 The default document root is:
-   /var/www/html
+   /var/www/html   <=== Wed Apr 29, 2020 
+                        Verified linode's /var/www/html/index.html 
 
 To change the document root:
   You need to edit the site specific config file at this path
-  /etc/apache2/sites-enabled
+  /etc/apache2/sites-enabled/
 
-  the file you probably need to edit is 000-default.conf
+  The file you probably need to edit is 000-default.conf
 
-  just change the DocumentRoot from /var/www/html to /var/www/YOUR_DIRECTORY
+  NOTE: /etc/apache2/sites-enabled/000-default.conf
+        -> ../sites-available/000-default.conf
+  
+  Just change the DocumentRoot from /var/www/html to /var/www/YOUR_DIRECTORY
   --digitalocean.com/
 
 
