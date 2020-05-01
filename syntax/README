@@ -5,7 +5,7 @@ Copyright (C) 2017-2019 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
-access-contol.txt
+access-control.txt
   Access control by host
   If you wish to restrict access to portions of your site based on the
   host address of your visitors, this is most easily done using mod_authz_host.
